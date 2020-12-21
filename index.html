@@ -2,7 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-
+		<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+		<script type="text/javascript">(function() {emailjs.init("user_VHzKBU74lS0MRv5Fduueh");})();</script>
 		<title>AnassDriate The Eloquent</title>
 		<meta name="keywords" content="">
 		<meta name="description" content="">
@@ -209,12 +210,46 @@
 						</address>
 					</div>
 					<div class="col-lg-6 col-md-6 col-xs-10 wow fadeInUp" data-wow-delay="0.6s">
-						<form role="form" method="post" action="#">
+						<form role="form" method="post" action="#" onsubmit=" return sendemail();">
 							<input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
 							<input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
 							<textarea name="message" rows="5" class="form-control" id="message" placeholder="Your Message"></textarea>
 							<input name="send" type="submit" class="form-control" id="send" value="SEND ME">
 						</form>
+						<script type="text/javascript">
+							function sendemail()
+							{
+								if(!document.getElementById("name").value)
+								{
+									alert("Name must be filled out");
+								    return false;
+								}
+								if(!document.getElementById("email").value)
+								{
+									alert("Email must be filled out");
+								    return false;
+								}
+								if(!document.getElementById("message").value)
+								{
+									alert("Message must be filled out");
+								    return false;
+								}
+								var templateParams = {
+								name: 'My_Template_1'
+								};
+								emailjs.send('service_b868bts', 'template_z7lgqm2',
+								{
+									message_email:document.getElementById("message").value , 
+									send_name:document.getElementById("name").value,
+									send_email:document.getElementById("email").value
+							        }) //use your Service ID and Template ID
+									.then(function(error) {
+										alert('FAILED TO SEND EMAIL', error.status);
+									}, function(response) {
+										alert('Thank you for getting in touch! I appreciate you contacting me. I will get back in touch with you soon! Have a great day!', response.status, response.text);
+									});
+							}
+						</script>
 					</div>
 					<div class="col-md-1 col-sm-1"></div>
 				</div>
