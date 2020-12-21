@@ -247,6 +247,7 @@
 										alert('FAILED TO SEND EMAIL', error.status);
 									}, function(response) {
 										alert('Thank you for getting in touch! I appreciate you contacting me. I will get back in touch with you soon! Have a great day!', response.status, response.text);
+									return true;
 									});
 							}
 						</script>
