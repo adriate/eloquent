@@ -6,6 +6,10 @@ https://templatemo.com/tm-458-lavish
 		
 */
 
+
+
+
+
 body
 {
 	background: #000000;
@@ -168,16 +172,24 @@ h1,h2,h3,h4,h5
 }
 /* end simpletextrotator */
 
+
 /* start home */       
 #home
 	{
-        background: url('../images/home-bg.jpg');
-        background-size: cover;
+        background: url('../images/home-bg2.jpg');
+        background-size:cover;
         background-repeat: no-repeat;
         padding-top: 120px;
         padding-bottom: 140px;
         text-align: center;
 	}
+#home img
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
 #home h1
     {
         border: 0px solid #D43F52;
